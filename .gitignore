@@ -1,5 +1,6 @@
 # Compiled class file
 *.class
+*.apk
 
 # Log file
 *.log
