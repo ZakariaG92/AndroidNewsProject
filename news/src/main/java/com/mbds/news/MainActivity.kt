@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
                "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
                "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
                "News"-> { changeFragment(ArticlesFragmentNews()) }
+               "Editeurs"-> { changeFragment(EditeurFragment()) }
            }
         }else {changeFragment(CategoriesFragement())}
 
