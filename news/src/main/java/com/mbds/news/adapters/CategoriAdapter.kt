@@ -17,7 +17,7 @@ import com.mbds.news.R
 
 
 class  CategoriAdapter(private val dataset: List<Category>) :
-    RecyclerView.Adapter<CategoriAdapter.ViewHolder>() {
+        RecyclerView.Adapter<CategoriAdapter.ViewHolder>() {
 
     class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
 
@@ -39,13 +39,13 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                         b.putString("key", "Sports")//Your id
                         intent.putExtras(b)//Put your id to your next Intent
                         imageView.context.startActivity(intent)
-                              }
+                    }
 
                     "Economy"-> {
                         b.putString("key", "Economy")//Your id
                         intent.putExtras(b)//Put your id to your next Intent
                         imageView.context.startActivity(intent)
-                               }
+                    }
 
                     "Politics"-> {
                         b.putString("key", "Politics")//Your id
@@ -69,11 +69,11 @@ class  CategoriAdapter(private val dataset: List<Category>) :
             txtname.text = item.name
 
             Glide
-                .with(root)
-                .load(item.image)
-                .centerInside()
-                .placeholder(R.drawable.placeholder)
-                .into(imageView);
+                    .with(root)
+                    .load(item.image)
+                    .centerInside()
+                    .placeholder(R.drawable.placeholder)
+                    .into(imageView);
         }
 
 
@@ -86,7 +86,7 @@ class  CategoriAdapter(private val dataset: List<Category>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val rootView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_item, parent, false)
+                .inflate(R.layout.list_item, parent, false)
         return ViewHolder(rootView)
     }
 
