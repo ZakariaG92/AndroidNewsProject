@@ -1,4 +1,6 @@
 package com.mbds.news.model
 
-class Country {
-}
+data class Country (
+    val name: String,
+    val image: String
+)

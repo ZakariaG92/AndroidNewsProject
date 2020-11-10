@@ -10,22 +10,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val ChoiceCategorie = intent.extras
-        var value = ""// or other values
+        /*  val ChoiceCategorie = intent.extras
+          var value = ""// or other values
 
-        if (ChoiceCategorie != null) {
-            value = ChoiceCategorie.getString("key").toString()
+          if (ChoiceCategorie != null) {
+              value = ChoiceCategorie.getString("key").toString()
 
-           when (value) {
-               "Sports"-> { changeFragment(ArticlesFragmentSport()) }
-               "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
-               "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
-               "News"-> { changeFragment(ArticlesFragmentNews()) }
-           }
-        }else {changeFragment(CategoriesFragement())}
+             when (value) {
+                 "Sports"-> { changeFragment(ArticlesFragmentSport()) }
+                 "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
+                 "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
+                 "News"-> { changeFragment(ArticlesFragmentNews()) }
+             }
+          }else {changeFragment(CategoriesFragement())}
+  */
 
-
-
+        changeFragment(CountryFragment())
 
 
 
@@ -40,7 +40,7 @@ fun MainActivity.changeFragment(fragment: Fragment) {
         //3) on remplace le contenu du container
         replace(R.id.fragment_container, fragment)
         //4) on ajoute la transaction dans la backstack
-       // addToBackStack(null)
+        // addToBackStack(null)
     }.commit()
     // 5) on commit la transaction
 }
