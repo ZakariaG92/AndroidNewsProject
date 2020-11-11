@@ -10,24 +10,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*  val ChoiceCategorie = intent.extras
-          var value = ""// or other values
+        val ChoiceCategorie = intent.extras
+        var value = ""// or other values
 
-          if (ChoiceCategorie != null) {
-              value = ChoiceCategorie.getString("key").toString()
+        if (ChoiceCategorie != null) {
+            value = ChoiceCategorie.getString("key").toString()
 
-             when (value) {
-                 "Sports"-> { changeFragment(ArticlesFragmentSport()) }
-                 "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
-                 "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
-                 "News"-> { changeFragment(ArticlesFragmentNews()) }
-             }
-          }else {changeFragment(CategoriesFragement())}
-  */
+            when (value) {
+                "Sports"-> { changeFragment(ArticlesFragmentSport()) }
+                "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
+                "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
+                "News"-> { changeFragment(ArticlesFragmentNews()) }
+                "Country"-> { changeFragment(CountryFragment()) }
+                "CountryArticles"-> {
+                    lateinit  var  fragmentDetail:CountryArticlesFragment
+                    val urlCountry= ChoiceCategorie.getString("ArticleCountryUrl");
+                    //val title=  articleDataBundle?.getString("title")
 
-        changeFragment(CountryFragment())
+                    if (urlCountry!=null) { fragmentDetail=  CountryArticlesFragment.newInstance(urlCountry)}
 
-
+                    if (fragmentDetail != null) {
+                        changeFragment(fragmentDetail)
+                    }
+                }
+            }
+        }else {changeFragment(CountryFragment())}
 
     }
 }

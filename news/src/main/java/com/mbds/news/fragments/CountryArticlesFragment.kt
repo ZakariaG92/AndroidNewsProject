@@ -46,9 +46,9 @@ class CountryArticlesFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
-        val urlEditeur=arguments?.getString("urlCountry")
+        val urlCountry=arguments?.getString("urlCountry")
 
-        repository = urlEditeur?.let { CountryArticlepository(it)}!!
+        repository = urlCountry?.let { CountryArticlepository(it)}!!
 
 
         lifecycleScope.launch(Dispatchers.IO) {

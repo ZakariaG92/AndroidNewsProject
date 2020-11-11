@@ -19,7 +19,7 @@ class CountryAdapter(private val dataset: List<Country>) :
 
         fun bind(item: Country) {
             var countryName = root.findViewById<TextView>(R.id.country_name)
-            countryName.setText(item.id)
+            countryName.setText(item.country)
 
             countryName.setOnClickListener {
 
