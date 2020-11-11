@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.mbds.news.fragments.*
+import java.time.temporal.ValueRange
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,25 +15,35 @@ class MainActivity : AppCompatActivity() {
 
         val ChoiceCategorie = intent.extras
 
-        var value = ""// or other values
+       lateinit var value:String
 
         if (ChoiceCategorie != null) {
             value = ChoiceCategorie.getString("key").toString()
 
             when (value) {
-                "Sports"-> { changeFragment(ArticlesFragmentSport()) }
-                "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
-                "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
-                "News"-> { changeFragment(ArticlesFragmentNews()) }
-                "Details"-> {
-                    val articleData= ChoiceCategorie.getStringArray("Article");
-                    //val title=  articleDataBundle?.getString("title")
-
-                    val fragmentDetail=  ArticleDetailFragment.newInstance(articleData!!.get(0),articleData!!.get(1),articleData!!.get(2),articleData!!.get(3),articleData!!.get(4))
-                    changeFragment(fragmentDetail)
+                "Articles"-> {
+                    println("****************************************")
+                    println(value)
+                    val url = ChoiceCategorie.getString("url").toString()
+                    val fragmentArticle= ArticlesFragment.newInstance(url)
+                    changeFragment(fragmentArticle)
                 }
+
+//                "Details"-> {
+//                    println("****************************************")
+//                    println(value)
+//                    val articleData= ChoiceCategorie.getStringArray("Article");
+//                    //val title=  articleDataBundle?.getString("title")
+//
+//                    val fragmentDetail=  ArticleDetailFragment.newInstance(articleData!!.get(0),articleData!!.get(1),articleData!!.get(2),articleData!!.get(3),articleData!!.get(4))
+//                    changeFragment(fragmentDetail)
+//                }
             }
-        }else {changeFragment(CategoriesFragement())}
+        }
+        else {
+            println("****************************************")
+            println("Categorie")
+            changeFragment(CategoriesFragement())}
 
 
 

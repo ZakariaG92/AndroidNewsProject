@@ -33,34 +33,11 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                 val intent = Intent(imageView.context, MainActivity::class.java)
                 var  b:Bundle  = Bundle()
 
-                when(txtname.text){
 
-                    "Sports"-> {
-                        b.putString("key", "Sports")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                    }
-
-                    "Economy"-> {
-                        b.putString("key", "Economy")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                    }
-
-                    "Politics"-> {
-                        b.putString("key", "Politics")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                    }
-
-                    "News"-> {
-                        b.putString("key", "News")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                    }
-
-                }
-
+                b.putString("key", "Articles")//Your id
+                b.putString("url", txtname.text.toString())
+                intent.putExtras(b)//Put your id to your next Intent
+                imageView.context.startActivity(intent)
             }
 
 
