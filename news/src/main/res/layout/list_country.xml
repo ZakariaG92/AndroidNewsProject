@@ -7,33 +7,20 @@
     android:background="@color/black">
     >
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/country_image"
-        android:layout_width="350dp"
-        android:layout_height="250dp"
-        android:layout_weight="1"
-        android:padding="16dp"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
     <TextView
         android:id="@+id/country_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:textSize="20sp"
-        android:textColor="#FFFFFFFF"
+        android:textColor="#FFFFFF"
         android:layout_margin="4dp"
         android:textAllCaps="true"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/country_image"
-        tools:text="Country"
-        android:background="@drawable/borderbottom"/>
+        tools:text="country"
+        android:background="@drawable/borderbottom" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

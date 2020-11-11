@@ -5,87 +5,49 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.mbds.news.MainActivity
-import com.mbds.news.model.Country
 import com.mbds.news.R
-import com.mbds.news.model.Category
+import com.mbds.news.model.Country
 
-
-class  CountryAdapter(private val dataset: List<Country>) :
+class CountryAdapter(private val dataset: List<Country>) :
     RecyclerView.Adapter<CountryAdapter.ViewHolder>() {
 
     class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
 
 
-        fun bind(item:Country ) {
-            val txtname = root.findViewById<TextView>(R.id.country_name)
-            val imageView = root.findViewById<ImageView>(R.id.country_image)
+        fun bind(item: Country) {
+            var countryName = root.findViewById<TextView>(R.id.country_name)
+            countryName.setText(item.id)
+
+            countryName.setOnClickListener {
 
 
-/*
-            imageView.setOnClickListener {
+                val intent = Intent(countryName.context, MainActivity::class.java)
+                var b: Bundle = Bundle()
 
-                val intent = Intent(imageView.context, MainActivity::class.java)
-                var  b:Bundle  = Bundle()
+                when (countryName.text) {
 
-                when(txtname.text){
-
-                    "Sports"-> {
-                        b.putString("key", "Sports")//Your id
+                    countryName.text -> {
+                        b.putString("key", "CountryArticles")//Your id
+                        b.putString("ArticleCountryUrl", "top-headlines?sources="+countryName.text+"&apiKey=fbab359f05f040b7aa7e2bcb7925d3ac")//Your id
                         intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
+                        countryName.context.startActivity(intent)
                     }
-
-                    "Economy"-> {
-                        b.putString("key", "Economy")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                    }
-
-                    "Politics"-> {
-                        b.putString("key", "Politics")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                    }
-
-                    "News"-> {
-                        b.putString("key", "News")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                    }
-
                 }
 
             }
-
-
-*/
-
-            txtname.text = item.name
-
-            Glide
-                .with(root)
-                .load(item.image)
-                .centerInside()
-                .placeholder(R.drawable.placeholder)
-                .into(imageView);
         }
     }
 
-
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val rootView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_pays, parent, false)
-        return CountryAdapter.ViewHolder(rootView)
+            .inflate(R.layout.list_country, parent, false)
+        return ViewHolder(rootView)
     }
 
-    override fun onBindViewHolder(holder: CountryAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(dataset[position])
     }
 
