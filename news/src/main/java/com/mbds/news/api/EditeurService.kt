@@ -10,7 +10,7 @@ import retrofit2.http.QueryName
 
 interface EditeurService {
 
-   // @GET("sources?apiKey=fbab359f05f040b7aa7e2bcb7925d3ac")
+    // Pour afficher les liste des editeurs
     @GET("sources?apiKey=fbab359f05f040b7aa7e2bcb7925d3ac")
     fun listEditeurs(): Call<EditeurResponse>
 

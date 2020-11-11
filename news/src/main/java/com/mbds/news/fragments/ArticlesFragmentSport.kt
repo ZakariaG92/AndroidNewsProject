@@ -57,19 +57,12 @@ class ArticlesFragmentSport : Fragment() {
         withContext(Dispatchers.IO) {
             val result = repository.listSport()
 
-
-
             bindData(result!!.articles,view)
-
-
-
-
         }
     }
     //S'execute sur le thread principal
     private suspend fun bindData(result: List<Article>, view: View) {
         withContext(Dispatchers.Main) {
-
 
             val recyclerView: RecyclerView = view.findViewById(R.id.recycler_articles)
 
@@ -78,10 +71,7 @@ class ArticlesFragmentSport : Fragment() {
             recyclerView.layoutManager = LinearLayoutManager(view.context)
             recyclerView.adapter = adapterRecycler
 
-
         }
     }
-
-
 
 }

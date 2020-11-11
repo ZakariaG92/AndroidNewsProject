@@ -26,6 +26,8 @@ class  CategoriAdapter(private val dataset: List<Category>) :
             val txtname = root.findViewById<TextView>(R.id.category_name)
             val imageView = root.findViewById<ImageView>(R.id.category_image)
 
+            txtname.text = item.name
+
 
 
             imageView.setOnClickListener {
@@ -35,8 +37,8 @@ class  CategoriAdapter(private val dataset: List<Category>) :
 
                 when(txtname.text){
 
-                    "Sports"-> {
-                        b.putString("key", "Sports")//Your id
+                    txtname.text-> {
+                        b.putString("key", txtname.text as String)//Your id
                         intent.putExtras(b)//Put your id to your next Intent
                         imageView.context.startActivity(intent)
                               }
@@ -71,24 +73,18 @@ class  CategoriAdapter(private val dataset: List<Category>) :
 
 
 
-
-            txtname.text = item.name
-
             Glide
                 .with(root)
                 .load(item.image)
                 .centerInside()
                 .placeholder(R.drawable.placeholder)
                 .into(imageView);
+
+            fun getValue(): String = txtname.text as String
         }
 
 
-
-
     }
-
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val rootView = LayoutInflater.from(parent.context)
@@ -101,5 +97,7 @@ class  CategoriAdapter(private val dataset: List<Category>) :
     }
 
     override fun getItemCount(): Int = dataset.size
+
+
 
 }

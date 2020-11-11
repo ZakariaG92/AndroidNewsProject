@@ -15,8 +15,6 @@ class Editeurpository {
     private val service: EditeurService
     init {
 
-
-
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
         val httpClient = OkHttpClient.Builder()
@@ -30,9 +28,6 @@ class Editeurpository {
 
         service = retrofit.create(EditeurService::class.java)
     }
-
-
-
 
     fun listEditeurs(): EditeurResponse? {
         val response = service.listEditeurs().execute()

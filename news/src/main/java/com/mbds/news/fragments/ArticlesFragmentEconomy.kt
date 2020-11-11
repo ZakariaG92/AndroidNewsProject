@@ -55,20 +55,12 @@ class ArticlesFragmentEconomy : Fragment() {
     private suspend fun getData(view: View) {
         withContext(Dispatchers.IO) {
             val result = repository.listEconomy()
-
-
-
             bindData(result!!.articles,view)
-
-
-
-
         }
     }
     //S'execute sur le thread principal
     private suspend fun bindData(result: List<Article>, view: View) {
         withContext(Dispatchers.Main) {
-
 
             val recyclerView: RecyclerView = view.findViewById(R.id.recycler_articles)
 

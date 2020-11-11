@@ -52,11 +52,6 @@ class CategoriesFragement : Fragment() {
         recyclerView.hasFixedSize()
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         recyclerView.adapter = adapterRecycler
-
-
-
-
-
     }
 
 

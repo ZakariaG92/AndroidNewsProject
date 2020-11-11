@@ -22,14 +22,20 @@ class MainActivity : AppCompatActivity() {
                "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
                "News"-> { changeFragment(ArticlesFragmentNews()) }
                "Editeurs"-> { changeFragment(EditeurFragment()) }
-           }
+               "EditeursArticles"-> {
+                   lateinit  var  fragmentDetail:EditeurArticlesFragment
+                   val urlEditeur= ChoiceCategorie.getString("ArticleEditeurUrl");
+                   //val title=  articleDataBundle?.getString("title")
+
+                   if (urlEditeur!=null) { fragmentDetail=  EditeurArticlesFragment.newInstance(urlEditeur)}
+
+                   if (fragmentDetail != null) {
+                       changeFragment(fragmentDetail)
+                   }
+               }
+               }
         }else {changeFragment(CategoriesFragement())}
-
-
-
-
-
-
+        //}else {changeFragment(EditeursFragment())}
     }
 }
 
