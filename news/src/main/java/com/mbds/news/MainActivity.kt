@@ -27,15 +27,15 @@ class MainActivity : AppCompatActivity() {
                     changeFragment(fragmentArticle)
                 }
 
-//                "Details"-> {
-//                    println("****************************************")
-//                    println(value)
-//                    val articleData= ChoiceCategorie.getStringArray("Article");
-//                    //val title=  articleDataBundle?.getString("title")
-//
-//                    val fragmentDetail=  ArticleDetailFragment.newInstance(articleData!!.get(0),articleData!!.get(1),articleData!!.get(2),articleData!!.get(3),articleData!!.get(4))
-//                    changeFragment(fragmentDetail)
-//                }
+                "Details"-> {
+                    println("****************************************")
+                    println(value)
+                    val articleData= ChoiceCategorie.getStringArray("Article");
+                    //val title=  articleDataBundle?.getString("title")
+
+                    val fragmentDetail=  ArticleDetailFragment.newInstance(articleData!!.get(0),articleData!!.get(1),articleData!!.get(2),articleData!!.get(3),articleData!!.get(4))
+                    changeFragment(fragmentDetail)
+                }
                 "Editeurs"-> { changeFragment(EditeurFragment()) }
                 "EditeursArticles"-> {
                     lateinit  var  fragmentDetail:EditeurArticlesFragment
