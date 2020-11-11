@@ -23,4 +23,10 @@ interface ArticleService {
 //    fun listPolitique(): Call<ArticleResponse>
 
 
+    @GET("everything?q=politic&apiKey=fbab359f05f040b7aa7e2bcb7925d3ac")
+    fun listPolitique(): Call<ArticleResponse>
+
+    // Pour les articles PAR EDITEUR
+    @GET()
+    fun listEditeurArticle(@Url url:String): Call<ArticleResponse>
 }

@@ -19,6 +19,7 @@ import com.mbds.news.model.Article
 class  ArticleAdapter(private val dataset: List<Article>) :
         RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
 
+
     class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
 
 
@@ -54,11 +55,6 @@ class  ArticleAdapter(private val dataset: List<Article>) :
 
             }
 
-
-
-
-
-
             Glide
                     .with(root)
                     .load(item.urlToImage)
@@ -82,6 +78,7 @@ class  ArticleAdapter(private val dataset: List<Article>) :
     }
 
     override fun getItemCount(): Int = dataset.size
+
 
 
 

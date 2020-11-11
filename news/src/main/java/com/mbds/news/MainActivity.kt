@@ -7,8 +7,6 @@ import com.mbds.news.fragments.*
 import java.time.temporal.ValueRange
 
 class MainActivity : AppCompatActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -38,6 +36,18 @@ class MainActivity : AppCompatActivity() {
 //                    val fragmentDetail=  ArticleDetailFragment.newInstance(articleData!!.get(0),articleData!!.get(1),articleData!!.get(2),articleData!!.get(3),articleData!!.get(4))
 //                    changeFragment(fragmentDetail)
 //                }
+                "Editeurs"-> { changeFragment(EditeurFragment()) }
+                "EditeursArticles"-> {
+                    lateinit  var  fragmentDetail:EditeurArticlesFragment
+                    val urlEditeur= ChoiceCategorie.getString("ArticleEditeurUrl");
+                    //val title=  articleDataBundle?.getString("title")
+
+                    if (urlEditeur!=null) { fragmentDetail=  EditeurArticlesFragment.newInstance(urlEditeur)}
+
+                    if (fragmentDetail != null) {
+                        changeFragment(fragmentDetail)
+                    }
+                }
             }
         }
         else {
@@ -61,8 +71,7 @@ fun MainActivity.changeFragment(fragment: Fragment) {
         //3) on remplace le contenu du container
         replace(R.id.fragment_container, fragment)
         //4) on ajoute la transaction dans la backstack
-        // addToBackStack(null)
+       // addToBackStack(null)
     }.commit()
     // 5) on commit la transaction
 }
-

@@ -26,12 +26,15 @@ class  CategoriAdapter(private val dataset: List<Category>) :
             val txtname = root.findViewById<TextView>(R.id.category_name)
             val imageView = root.findViewById<ImageView>(R.id.category_image)
 
+            txtname.text = item.name
+
 
 
             imageView.setOnClickListener {
 
                 val intent = Intent(imageView.context, MainActivity::class.java)
                 var  b:Bundle  = Bundle()
+
 
 
                 b.putString("key", "Articles")//Your id
@@ -43,7 +46,7 @@ class  CategoriAdapter(private val dataset: List<Category>) :
 
 
 
-            txtname.text = item.name
+
 
             Glide
                     .with(root)
