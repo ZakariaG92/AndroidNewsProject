@@ -8,13 +8,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.like.LikeButton
+import com.mbds.news.Dao.AppDatabase
 import com.mbds.news.MainActivity
 
 import com.mbds.news.R
 import com.mbds.news.changeFragment
 import com.mbds.news.model.Article
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class  ArticleAdapter(private val dataset: List<Article>) :
         RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
@@ -28,6 +34,7 @@ class  ArticleAdapter(private val dataset: List<Article>) :
             var artImage = root.findViewById<ImageView>(R.id.article_image)
             var artDescription = root.findViewById<TextView>(R.id.article_description)
             var artDate = root.findViewById<TextView>(R.id.article_date)
+            var favoris = root.findViewById<LikeButton>(R.id.heart_button)
             // buttonArticle.setText(item.name)
 
 
@@ -50,9 +57,33 @@ class  ArticleAdapter(private val dataset: List<Article>) :
                 artImage.context.startActivity(intent)
 
 
+            }
+
+            favoris.setOnClickListener {
+
+                val articleToSave:Article = Article(null,item.source,item.title,item.urlToImage,item.author,
+                item.description,item.content,item.url)
 
 
 
+                GlobalScope.launch(Dispatchers.IO) {
+
+
+                    println("*************************************************************************")
+
+                    println("lyfecycle")
+
+                    println("*************************************************************************")
+                    var article1:Article= Article(1, null,"titre",null,"gasmi","desc","contenu",null)
+
+
+
+                    val  db = AppDatabase.getAppDataBase(context = favoris.context)
+                    var articleDao = db?.articleDao()
+
+                    articleDao?.insertArticle(articleToSave)
+
+                }
             }
 
             Glide

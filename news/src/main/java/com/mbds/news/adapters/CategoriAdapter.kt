@@ -42,6 +42,12 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                         imageView.context.startActivity(intent)
                     }
 
+                    "Favoris"-> {
+                        b.putString("key", "Favoris")//Your id
+                        intent.putExtras(b)//Put your id to your next Intent
+                        imageView.context.startActivity(intent)
+                    }
+
                     else -> {
 
                         b.putString("key", "Articles")//Your id

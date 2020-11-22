@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/fav_image"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_weight="1"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fav_name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textStyle="bold|italic"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fav_image"
+        tools:text="fav_name"
+        />
+
+    <TextView
+        android:id="@+id/fav_author"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textAllCaps="true"
+        android:textStyle="bold|italic"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fav_name"
+        android:layout_marginTop="2dp"
+        tools:text="fav_author"
+        />
+
+    <TextView
+        android:id="@+id/fav_date"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textAllCaps="true"
+        android:textStyle="bold|italic"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fav_author"
+        android:layout_marginTop="2dp"
+        tools:text="fav_date"
+        />
+
+
+    <TextView
+        android:id="@+id/fav_description"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/borderbottomblack"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:textColor="#56636e"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fav_date"
+        tools:text="fav_description" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

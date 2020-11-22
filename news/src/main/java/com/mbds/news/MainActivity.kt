@@ -1,9 +1,16 @@
 package com.mbds.news
 
+import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.mbds.news.Dao.AppDatabase
 import com.mbds.news.fragments.*
+import com.mbds.news.model.Article
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.time.temporal.ValueRange
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +21,33 @@ class MainActivity : AppCompatActivity() {
         val ChoiceCategorie = intent.extras
 
        lateinit var value:String
+
+
+//        var article1:Article= Article(null, null,"titre",null,"gasmi","desc","contenu",null)
+//
+//      val  db = AppDatabase.getAppDataBase(context = this)
+//       var articleDao = db?.articleDao()
+//
+//        articleDao?.insertArticle(article1)
+
+        lifecycleScope.launch(Dispatchers.IO) {
+
+
+            println("*************************************************************************")
+
+            println("lyfecycle")
+
+            println("*************************************************************************")
+                    var article1:Article= Article(1, null,"titre",null,"gasmi","desc","contenu",null)
+
+
+
+      val  db = AppDatabase.getAppDataBase(context = application.baseContext)
+       var articleDao = db?.articleDao()
+
+        //articleDao?.insertArticle(article1)
+
+        }
 
         if (ChoiceCategorie != null) {
             value = ChoiceCategorie.getString("key").toString()
@@ -48,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                         changeFragment(fragmentDetail)
                     }
                 }
+                "Favoris"-> { changeFragment(FavorisFragment())}
             }
         }
         else {
