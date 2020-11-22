@@ -61,7 +61,7 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                         imageView.context.startActivity(intent)
                     }
 
-                    "Editeurs"-> {
+                    "Par éditeurs"-> {
                         b.putString("key", "Editeurs")//Your id
                         intent.putExtras(b)//Put your id to your next Intent
                         imageView.context.startActivity(intent)

@@ -3,6 +3,9 @@ package com.mbds.news
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 import com.mbds.news.fragments.*
 
 class MainActivity : AppCompatActivity() {
@@ -10,18 +13,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val ChoiceCategorie = intent.extras
+
+       val ChoiceCategorie = intent.extras
         var value = ""// or other values
 
         if (ChoiceCategorie != null) {
             value = ChoiceCategorie.getString("key").toString()
 
            when (value) {
+               "Par catégories"-> { changeFragment(CategoriesFragement()) }
                "Sports"-> { changeFragment(ArticlesFragmentSport()) }
                "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
                "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
                "News"-> { changeFragment(ArticlesFragmentNews()) }
-               "Editeurs"-> { changeFragment(EditeurFragment()) }
+               "Par éditeurs"-> { changeFragment(EditeurFragment()) }
                "EditeursArticles"-> {
                    lateinit  var  fragmentDetail:EditeurArticlesFragment
                    val urlEditeur= ChoiceCategorie.getString("ArticleEditeurUrl");
@@ -34,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                    }
                }
                }
-        }else {changeFragment(CategoriesFragement())}
+        }else {changeFragment(HomeFragment())}
         //}else {changeFragment(EditeursFragment())}
     }
 }
