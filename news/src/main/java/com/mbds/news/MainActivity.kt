@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
         if (ChoiceCategorie != null) {
             value = ChoiceCategorie.getString("key").toString()
+            value2 = ChoiceCategorie2?.getString("ArticleCountryUrl").toString()
+
 
             when (value) {
                 "Articles"-> {
@@ -77,6 +79,17 @@ class MainActivity : AppCompatActivity() {
                     //val title=  articleDataBundle?.getString("title")
 
                     if (urlEditeur!=null) { fragmentDetail=  EditeurArticlesFragment.newInstance(urlEditeur)}
+
+                    if (fragmentDetail != null) {
+                        changeFragment(fragmentDetail)
+                    }
+                }
+                "CountryArticles"-> {
+                    lateinit  var  fragmentDetail:CountryArticlesFragment
+                    val urlCountry= ChoiceCategorie2?.getString("ArticleCountryUrl");
+                    //val title=  articleDataBundle?.getString("title")
+
+                    if (urlCountry!=null) { fragmentDetail=  CountryArticlesFragment.newInstance(urlCountry)}
 
                     if (fragmentDetail != null) {
                         changeFragment(fragmentDetail)

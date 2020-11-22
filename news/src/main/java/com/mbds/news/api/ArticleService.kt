@@ -29,4 +29,7 @@ interface ArticleService {
     // Pour les articles PAR EDITEUR
     @GET()
     fun listEditeurArticle(@Url url:String): Call<ArticleResponse>
+
+    @GET()
+    fun listCountryArticle(@Url url:String): Call<ArticleResponse>
 }
