@@ -63,7 +63,7 @@ class ArticlesFragment : Fragment() {
             bindData(result!!.articles,view)
         }
     }
-    //S'execute sur le thread principal
+    //S'execute sur le thread principal_
     private suspend fun bindData(result: List<Article>, view: View) {
         withContext(Dispatchers.Main) {
 
