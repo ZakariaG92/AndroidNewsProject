@@ -17,7 +17,7 @@ import com.mbds.news.R
 
 
 class  CategoriAdapter(private val dataset: List<Category>) :
-        RecyclerView.Adapter<CategoriAdapter.ViewHolder>() {
+    RecyclerView.Adapter<CategoriAdapter.ViewHolder>() {
 
     class ViewHolder(val root: View) : RecyclerView.ViewHolder(root) {
 
@@ -36,8 +36,27 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                 var  b:Bundle  = Bundle()
 
                 when(txtname.text){
-                    "Editeurs"-> {
-                        b.putString("key", "Editeurs")//Your id
+
+                    txtname.text-> {
+                        b.putString("key", txtname.text as String)//Your id
+                        intent.putExtras(b)//Put your id to your next Intent
+                        imageView.context.startActivity(intent)
+                              }
+
+                    "Economy"-> {
+                        b.putString("key", "Economy")//Your id
+                        intent.putExtras(b)//Put your id to your next Intent
+                        imageView.context.startActivity(intent)
+                               }
+
+                    "Politics"-> {
+                        b.putString("key", "Politics")//Your id
+                        intent.putExtras(b)//Put your id to your next Intent
+                        imageView.context.startActivity(intent)
+                    }
+
+                    "News"-> {
+                        b.putString("key", "News")//Your id
                         intent.putExtras(b)//Put your id to your next Intent
                         imageView.context.startActivity(intent)
                     }
@@ -48,6 +67,11 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                         imageView.context.startActivity(intent)
                     }
 
+                    "Par éditeurs"-> {
+                        b.putString("key", "Editeurs")//Your id
+
+
+                }
                     else -> {
 
                         b.putString("key", "Articles")//Your id
@@ -56,17 +80,7 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                         imageView.context.startActivity(intent)
                     }
 
-
-                }
-
-
-
-
-
             }
-
-
-
 
 
 
@@ -83,9 +97,6 @@ class  CategoriAdapter(private val dataset: List<Category>) :
 
     }
 
-
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val rootView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.list_item, parent, false)
@@ -97,5 +108,7 @@ class  CategoriAdapter(private val dataset: List<Category>) :
     }
 
     override fun getItemCount(): Int = dataset.size
+
+
 
 }

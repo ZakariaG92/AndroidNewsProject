@@ -12,6 +12,9 @@ import com.mbds.news.model.Article
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.time.temporal.ValueRange
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,65 +22,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val ChoiceCategorie = intent.extras
-        val ChoiceCategorie2 = intent.extras
-
-       lateinit var value:String
-
-
-//        var article1:Article= Article(null, null,"titre",null,"gasmi","desc","contenu",null)
-//
-//      val  db = AppDatabase.getAppDataBase(context = this)
-//       var articleDao = db?.articleDao()
-//
-//        articleDao?.insertArticle(article1)
-
-        lifecycleScope.launch(Dispatchers.IO) {
-
-
-            println("*************************************************************************")
-
-            println("lyfecycle")
-
-            println("*************************************************************************")
-                    var article1:Article= Article(1, null,"titre",null,"gasmi","desc","contenu",null)
-
-
-
-      val  db = AppDatabase.getAppDataBase(context = application.baseContext)
-       var articleDao = db?.articleDao()
-
-        //articleDao?.insertArticle(article1)
-
-        }
+        var value = ""// or other values
 
         if (ChoiceCategorie != null) {
             value = ChoiceCategorie.getString("key").toString()
             //value2 = ChoiceCategorie2?.getString("ArticleCountryUrl").toString()
 
 
-            when (value) {
-                "Articles"-> {
-                    println("****************************************")
-                    println(value)
-                    val url = ChoiceCategorie.getString("url").toString()
-                    val fragmentArticle= ArticlesFragment.newInstance(url)
-                    changeFragment(fragmentArticle)
-                }
-
-                "Details"-> {
-                    println("****************************************")
-                    println(value)
-                    val articleData= ChoiceCategorie.getStringArray("Article");
-                    //val title=  articleDataBundle?.getString("title")
-
-                    val fragmentDetail=  ArticleDetailFragment.newInstance(articleData!!.get(0),articleData!!.get(1),articleData!!.get(2),articleData!!.get(3),articleData!!.get(4))
-                    changeFragment(fragmentDetail)
-                }
-                "Editeurs"-> { changeFragment(EditeurFragment()) }
-                "EditeursArticles"-> {
-                    lateinit  var  fragmentDetail:EditeurArticlesFragment
-                    val urlEditeur= ChoiceCategorie.getString("ArticleEditeurUrl");
-                    //val title=  articleDataBundle?.getString("title")
+           when (value) {
+               "Par catégories"-> { changeFragment(CategoriesFragement()) }
+               "Sports"-> { changeFragment(ArticlesFragmentSport()) }
+               "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
+               "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
+               "News"-> { changeFragment(ArticlesFragmentNews()) }
+               "Par éditeurs"-> { changeFragment(EditeurFragment()) }
+               "EditeursArticles"-> {
+                   lateinit  var  fragmentDetail:EditeurArticlesFragment
+                   val urlEditeur= ChoiceCategorie.getString("ArticleEditeurUrl");
+                   //val title=  articleDataBundle?.getString("title")
 
                     if (urlEditeur!=null) { fragmentDetail=  EditeurArticlesFragment.newInstance(urlEditeur)}
 
@@ -109,6 +71,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
+                   if (fragmentDetail != null) {
+                       changeFragment(fragmentDetail)
+                   }
+               }
+               }
+        }else {changeFragment(HomeFragment())}
+        //}else {changeFragment(EditeursFragment())}
     }
 }
 
