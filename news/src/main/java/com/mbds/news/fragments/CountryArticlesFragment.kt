@@ -16,6 +16,9 @@ import com.mbds.news.model.Article
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +31,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class CountryArticlesFragment : Fragment() {
+
 
     lateinit var repository:CountryArticlepository
 
@@ -91,4 +95,5 @@ class CountryArticlesFragment : Fragment() {
             return fragment
         }
     }
+
 }

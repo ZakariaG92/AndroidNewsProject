@@ -30,8 +30,11 @@ class CountryAdapter(private val dataset: List<Country>) :
                 when (countryName.text) {
 
                     countryName.text -> {
+
+                        var urlCount="top-headlines?country="+countryName.text+"&apiKey=fbab359f05f040b7aa7e2bcb7925d3ac";
+
                         b.putString("key", "CountryArticles")//Your id
-                        b.putString("ArticleCountryUrl", "top-headlines?sources="+countryName.text+"&apiKey=fbab359f05f040b7aa7e2bcb7925d3ac")//Your id
+                        b.putString("ArticleCountryUrl",urlCount)//Your id
                         intent.putExtras(b)//Put your id to your next Intent
                         countryName.context.startActivity(intent)
                     }

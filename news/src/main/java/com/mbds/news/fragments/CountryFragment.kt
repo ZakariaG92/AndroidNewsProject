@@ -61,9 +61,11 @@ class CountryFragment : Fragment() {
         withContext(Dispatchers.Main) {
 
 
+            val a:List<Country>
+            a=result.distinct()
             val recyclerView: RecyclerView = view.findViewById(R.id.recycler_country)
 
-            val adapterRecycler=CountryAdapter(result)
+            val adapterRecycler=CountryAdapter(a)
             recyclerView.hasFixedSize()
             recyclerView.layoutManager = LinearLayoutManager(view.context)
             recyclerView.adapter = adapterRecycler

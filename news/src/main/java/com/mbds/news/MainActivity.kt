@@ -11,10 +11,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val ChoiceCategorie = intent.extras
+        val ChoiceCategorie2 = intent.extras
         var value = ""// or other values
+        var value2=""
 
         if (ChoiceCategorie != null) {
             value = ChoiceCategorie.getString("key").toString()
+            value2 = ChoiceCategorie2?.getString("ArticleCountryUrl").toString()
+
 
             when (value) {
                 "Sports"-> { changeFragment(ArticlesFragmentSport()) }
@@ -24,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 "Country"-> { changeFragment(CountryFragment()) }
                 "CountryArticles"-> {
                     lateinit  var  fragmentDetail:CountryArticlesFragment
-                    val urlCountry= ChoiceCategorie.getString("ArticleCountryUrl");
+                    val urlCountry= ChoiceCategorie2?.getString("ArticleCountryUrl");
                     //val title=  articleDataBundle?.getString("title")
 
                     if (urlCountry!=null) { fragmentDetail=  CountryArticlesFragment.newInstance(urlCountry)}

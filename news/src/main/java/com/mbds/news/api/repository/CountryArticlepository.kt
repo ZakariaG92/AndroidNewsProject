@@ -26,7 +26,7 @@ class CountryArticlepository {
         val retrofit = Retrofit.Builder().apply {
             //val baseUrl = "https://newsapi.org/v2/"
             baseUrl("https://newsapi.org/v2/")
-            addConverterFactory(GsonConverterFactory.create())
+                    addConverterFactory(GsonConverterFactory.create())
         }.build()
 
         service = retrofit.create(ArticleService::class.java)
