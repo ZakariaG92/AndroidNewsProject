@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val ChoiceCategorie = intent.extras
+        val ChoiceCategorie2 = intent.extras
 
        lateinit var value:String
 
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         if (ChoiceCategorie != null) {
             value = ChoiceCategorie.getString("key").toString()
-            value2 = ChoiceCategorie2?.getString("ArticleCountryUrl").toString()
+            //value2 = ChoiceCategorie2?.getString("ArticleCountryUrl").toString()
 
 
             when (value) {
