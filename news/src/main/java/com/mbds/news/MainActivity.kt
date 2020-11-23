@@ -82,6 +82,10 @@ class MainActivity : AppCompatActivity() {
 
                    changeFragment(CountryFragment())
                }
+               "About us"-> {
+
+                   changeFragment(AboutUsFragment())
+               }
             }
         }
         else {

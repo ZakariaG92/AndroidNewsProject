@@ -37,7 +37,8 @@ class HomeFragment : Fragment() {
         val articles: List<Category> = listOf<Category>(
             Category("Par catégories", "https://i.picsum.photos/id/367/4928/3264.jpg?hmac=H-2OwMlcYm0a--Jd2qaZkXgFZFRxYyGrkrYjupP8Sro"),
             Category("Par éditeurs", "https://i.picsum.photos/id/367/4928/3264.jpg?hmac=H-2OwMlcYm0a--Jd2qaZkXgFZFRxYyGrkrYjupP8Sro"),
-            Category("Par pays", "https://i.picsum.photos/id/367/4928/3264.jpg?hmac=H-2OwMlcYm0a--Jd2qaZkXgFZFRxYyGrkrYjupP8Sro")
+            Category("Par pays", "https://i.picsum.photos/id/367/4928/3264.jpg?hmac=H-2OwMlcYm0a--Jd2qaZkXgFZFRxYyGrkrYjupP8Sro"),
+            Category("About us", "https://i.picsum.photos/id/367/4928/3264.jpg?hmac=H-2OwMlcYm0a--Jd2qaZkXgFZFRxYyGrkrYjupP8Sro")
         )
         val adapterRecycler = CategoriAdapter(articles)
         recyclerView.hasFixedSize()

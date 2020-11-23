@@ -70,6 +70,15 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                     }
 
 
+                    "About us"-> {
+
+                        b.putString("key", "About us")//Your id
+                        intent.putExtras(b)//Put your id to your next Intent
+                        imageView.context.startActivity(intent)
+
+                    }
+
+
                    else ->{
 
                         b.putString("key", "Articles")//Your id
