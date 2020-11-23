@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val ChoiceCategorie = intent.extras
+        val ChoiceCategorie2 = intent.extras
         var value = ""// or other values
 
         if (ChoiceCategorie != null) {
@@ -30,12 +31,19 @@ class MainActivity : AppCompatActivity() {
 
 
            when (value) {
+
+               "Articles"-> {
+                   println("****************************************")
+                   println(value)
+                   val url = ChoiceCategorie.getString("url").toString()
+                   val fragmentArticle= ArticlesFragment.newInstance(url)
+                   changeFragment(fragmentArticle)
+               }
+
                "Par catégories"-> { changeFragment(CategoriesFragement()) }
-               "Sports"-> { changeFragment(ArticlesFragmentSport()) }
-               "Economy"-> { changeFragment(ArticlesFragmentEconomy()) }
-               "Politics"-> { changeFragment(ArticlesFragmentPolitique()) }
-               "News"-> { changeFragment(ArticlesFragmentNews()) }
-               "Par éditeurs"-> { changeFragment(EditeurFragment()) }
+
+               "Par éditeurs"-> {
+                   changeFragment(EditeurFragment()) }
                "EditeursArticles"-> {
                    lateinit  var  fragmentDetail:EditeurArticlesFragment
                    val urlEditeur= ChoiceCategorie.getString("ArticleEditeurUrl");
@@ -59,26 +67,33 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 "Favoris"-> { changeFragment(FavorisFragment())}
+
+               "Details"-> {
+                   println("****************************************")
+                   println(value)
+                   val articleData= ChoiceCategorie.getStringArray("Article");
+                   //val title=  articleDataBundle?.getString("title")
+
+                   val fragmentDetail=  ArticleDetailFragment.newInstance(articleData!!.get(0),articleData!!.get(1),articleData!!.get(2),articleData!!.get(3),articleData!!.get(4))
+                   changeFragment(fragmentDetail)
+               }
+
+               "Par pays"-> {
+
+                   changeFragment(CountryFragment())
+               }
             }
         }
         else {
             println("****************************************")
             println("Categorie")
-            changeFragment(CategoriesFragement())}
-
-
-
-
-
-
-                   if (fragmentDetail != null) {
-                       changeFragment(fragmentDetail)
-                   }
-               }
-               }
-        }else {changeFragment(HomeFragment())}
-        //}else {changeFragment(EditeursFragment())}
+            changeFragment(HomeFragment())}
     }
+
+
+
+
+
 }
 
 /**

@@ -16,7 +16,7 @@ import com.mbds.news.Dao.AppDatabase
 import com.mbds.news.MainActivity
 
 import com.mbds.news.R
-import com.mbds.news.changeFragment
+//import com.mbds.news.changeFragment
 import com.mbds.news.model.Article
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

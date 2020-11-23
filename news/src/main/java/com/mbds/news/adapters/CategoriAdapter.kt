@@ -35,28 +35,14 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                 val intent = Intent(imageView.context, MainActivity::class.java)
                 var  b:Bundle  = Bundle()
 
+                println(txtname.text)
                 when(txtname.text){
 
-                    txtname.text-> {
+
+
+
+                    "Par catégories"-> {
                         b.putString("key", txtname.text as String)//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                              }
-
-                    "Economy"-> {
-                        b.putString("key", "Economy")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                               }
-
-                    "Politics"-> {
-                        b.putString("key", "Politics")//Your id
-                        intent.putExtras(b)//Put your id to your next Intent
-                        imageView.context.startActivity(intent)
-                    }
-
-                    "News"-> {
-                        b.putString("key", "News")//Your id
                         intent.putExtras(b)//Put your id to your next Intent
                         imageView.context.startActivity(intent)
                     }
@@ -68,11 +54,23 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                     }
 
                     "Par éditeurs"-> {
-                        b.putString("key", "Editeurs")//Your id
-
+                        println("par editeur")
+                        b.putString("key", "Par éditeurs")//Your id
+                        intent.putExtras(b)//Put your id to your next Intent
+                        imageView.context.startActivity(intent)
 
                 }
-                    else -> {
+
+                    "Par pays"-> {
+
+                        b.putString("key", "Par pays")//Your id
+                        intent.putExtras(b)//Put your id to your next Intent
+                        imageView.context.startActivity(intent)
+
+                    }
+
+
+                   else ->{
 
                         b.putString("key", "Articles")//Your id
                         b.putString("url", txtname.text.toString())
@@ -80,6 +78,7 @@ class  CategoriAdapter(private val dataset: List<Category>) :
                         imageView.context.startActivity(intent)
                     }
 
+            }
             }
 
 
@@ -112,3 +111,4 @@ class  CategoriAdapter(private val dataset: List<Category>) :
 
 
 }
+
